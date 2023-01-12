@@ -1,6 +1,6 @@
 {
   "name": "karas-scatter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scatter component for karas.",
   "maintainers": [
     {
@@ -17,7 +17,7 @@
     "url": "git://github.com/karasjs/karas-scatter.git"
   },
   "peerDependencies": {
-    "karas": "^0.85.8"
+    "karas": "^0.85.9"
   },
   "dependencies": {},
   "devDependencies": {
