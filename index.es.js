@@ -84,16 +84,13 @@ function _toPropertyKey(arg) {
   return typeof key === "symbol" ? key : String(key);
 }
 
+var version = "0.1.1";
+
 var _karas$enums$STYLE_KE = karas.enums.STYLE_KEY,
   DISPLAY = _karas$enums$STYLE_KE.DISPLAY,
-  VISIBILITY = _karas$enums$STYLE_KE.VISIBILITY;
-  _karas$enums$STYLE_KE.TRANSLATE_X;
-  _karas$enums$STYLE_KE.TRANSLATE_Y;
-  var OPACITY = _karas$enums$STYLE_KE.OPACITY;
-  _karas$enums$STYLE_KE.SCALE_X;
-  _karas$enums$STYLE_KE.SCALE_Y;
-  _karas$enums$STYLE_KE.ROTATE_Z;
-  var _karas$refresh = karas.refresh,
+  VISIBILITY = _karas$enums$STYLE_KE.VISIBILITY,
+  OPACITY = _karas$enums$STYLE_KE.OPACITY,
+  _karas$refresh = karas.refresh,
   CACHE = _karas$refresh.level.CACHE,
   drawTextureCache = _karas$refresh.webgl.drawTextureCache,
   _karas$util = karas.util,
@@ -108,9 +105,8 @@ var _karas$enums$STYLE_KE = karas.enums.STYLE_KEY,
   multiplyTfo = _karas$math$matrix.multiplyTfo,
   tfoMultiply = _karas$math$matrix.tfoMultiply,
   multiplyTranslateX = _karas$math$matrix.multiplyTranslateX,
-  multiplyTranslateY = _karas$math$matrix.multiplyTranslateY;
-  _karas$math$matrix.multiplyRotateZ;
-  var multiplyScaleX = _karas$math$matrix.multiplyScaleX,
+  multiplyTranslateY = _karas$math$matrix.multiplyTranslateY,
+  multiplyScaleX = _karas$math$matrix.multiplyScaleX,
   multiplyScaleY = _karas$math$matrix.multiplyScaleY,
   _karas$mode = karas.mode,
   CANVAS = _karas$mode.CANVAS,
@@ -182,7 +178,7 @@ var $ = /*#__PURE__*/function (_karas$Geom) {
               m = multiply(me, m);
             }
             ctx.globalAlpha = opacity;
-            // canvas处理方式不一样，render的dx和dy包含了total的偏移计算考虑，可以无感知
+            // canvas处理方式不一样，render的dx和dy包含了cacheTotal的偏移计算考虑，可以无感知
             ctx.setTransform(m[0], m[1], m[4], m[5], m[12], m[13]);
             ctx.drawImage(item.source, x1 + dx, y1 + dy);
           } else if (renderMode === WEBGL) {
@@ -555,6 +551,7 @@ var Scatter = /*#__PURE__*/function (_karas$Component) {
   }]);
   return Scatter;
 }(karas.Component);
+Scatter.version = version;
 
 export { Scatter as default };
 //# sourceMappingURL=index.es.js.map

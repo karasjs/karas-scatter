@@ -6,12 +6,7 @@ const {
     STYLE_KEY: {
       DISPLAY,
       VISIBILITY,
-      TRANSLATE_X,
-      TRANSLATE_Y,
       OPACITY,
-      SCALE_X,
-      SCALE_Y,
-      ROTATE_Z,
     },
   },
   refresh: {
@@ -38,7 +33,6 @@ const {
       tfoMultiply,
       multiplyTranslateX,
       multiplyTranslateY,
-      multiplyRotateZ,
       multiplyScaleX,
       multiplyScaleY,
     },
@@ -110,7 +104,7 @@ class $ extends karas.Geom {
             m = multiply(me, m);
           }
           ctx.globalAlpha = opacity;
-          // canvas处理方式不一样，render的dx和dy包含了total的偏移计算考虑，可以无感知
+          // canvas处理方式不一样，render的dx和dy包含了cacheTotal的偏移计算考虑，可以无感知
           ctx.setTransform(m[0], m[1], m[4], m[5], m[12], m[13]);
           ctx.drawImage(item.source, x1 + dx, y1 + dy);
         }
@@ -460,5 +454,7 @@ class Scatter extends karas.Component {
     return this.__duration;
   }
 }
+
+Scatter.version = version;
 
 export default Scatter;

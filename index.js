@@ -92,16 +92,13 @@
     return typeof key === "symbol" ? key : String(key);
   }
 
+  var version = "0.1.1";
+
   var _karas$enums$STYLE_KE = karas__default["default"].enums.STYLE_KEY,
     DISPLAY = _karas$enums$STYLE_KE.DISPLAY,
-    VISIBILITY = _karas$enums$STYLE_KE.VISIBILITY;
-    _karas$enums$STYLE_KE.TRANSLATE_X;
-    _karas$enums$STYLE_KE.TRANSLATE_Y;
-    var OPACITY = _karas$enums$STYLE_KE.OPACITY;
-    _karas$enums$STYLE_KE.SCALE_X;
-    _karas$enums$STYLE_KE.SCALE_Y;
-    _karas$enums$STYLE_KE.ROTATE_Z;
-    var _karas$refresh = karas__default["default"].refresh,
+    VISIBILITY = _karas$enums$STYLE_KE.VISIBILITY,
+    OPACITY = _karas$enums$STYLE_KE.OPACITY,
+    _karas$refresh = karas__default["default"].refresh,
     CACHE = _karas$refresh.level.CACHE,
     drawTextureCache = _karas$refresh.webgl.drawTextureCache,
     _karas$util = karas__default["default"].util,
@@ -116,9 +113,8 @@
     multiplyTfo = _karas$math$matrix.multiplyTfo,
     tfoMultiply = _karas$math$matrix.tfoMultiply,
     multiplyTranslateX = _karas$math$matrix.multiplyTranslateX,
-    multiplyTranslateY = _karas$math$matrix.multiplyTranslateY;
-    _karas$math$matrix.multiplyRotateZ;
-    var multiplyScaleX = _karas$math$matrix.multiplyScaleX,
+    multiplyTranslateY = _karas$math$matrix.multiplyTranslateY,
+    multiplyScaleX = _karas$math$matrix.multiplyScaleX,
     multiplyScaleY = _karas$math$matrix.multiplyScaleY,
     _karas$mode = karas__default["default"].mode,
     CANVAS = _karas$mode.CANVAS,
@@ -190,7 +186,7 @@
                 m = multiply(me, m);
               }
               ctx.globalAlpha = opacity;
-              // canvas处理方式不一样，render的dx和dy包含了total的偏移计算考虑，可以无感知
+              // canvas处理方式不一样，render的dx和dy包含了cacheTotal的偏移计算考虑，可以无感知
               ctx.setTransform(m[0], m[1], m[4], m[5], m[12], m[13]);
               ctx.drawImage(item.source, x1 + dx, y1 + dy);
             } else if (renderMode === WEBGL) {
@@ -563,6 +559,7 @@
     }]);
     return Scatter;
   }(karas__default["default"].Component);
+  Scatter.version = version;
 
   return Scatter;
 
